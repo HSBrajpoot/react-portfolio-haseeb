@@ -8,8 +8,8 @@ export const EXPERIENCES = [
     {
       year: "2023",
       company: "Personal Project",
-      description: "Created a To-Do List application using HTML, CSS, and JavaScript. This project includes features such as adding, editing, and deleting tasks. It showcases my ability to build interactive and user-friendly web applications with a focus on functionality and design.",
-      technologies: ["HTML", "CSS", "JavaScript"]
+      description: "Self-taught Python programming, focusing on developing multiple REST APIs using Django and PostgreSQL for data storage. Additionally, explored and implemented several machine learning models, deploying them with Django for model serving and React/Next.js for the user interface. Still learning and expanding knowledge in ML and AI concepts.",
+      technologies: ["Python", "Django", "PostgreSQL", "React", "Next.js", "Machine Learning"]
     },
     {
       year: "2023 - Ongoing",
