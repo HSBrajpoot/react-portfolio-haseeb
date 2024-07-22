@@ -25,9 +25,38 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form data submitted:", formData);
+    const formDataToSend = new FormData();
+    formDataToSend.append("access_key", "68696b3d-1fb1-4f87-a37b-c7a9e4ebd86e");
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("message", formData.message);
+
+    const object = Object.fromEntries(formDataToSend);
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        console.log("Success", result);
+      } else {
+        console.log("Failed", result);
+      }
+    } catch (error) {
+      console.error("Error submitting form data:", error);
+    }
+
     setFormData({
       name: "",
       email: "",
@@ -148,7 +177,7 @@ const Contact = () => {
                 Name
               </label>
               <input
-                className="shadow appearance-none border-2 border-neutral-900 rounded w-full py-3 px-3 text-neutral-900 font-bold bg-transparent leading-tight focus:outline-none focus:shadow-outline focus:border-2 hover:border-purple-600 transition-all duration-300"
+                className="shadow appearance-none border-2 border-neutral-900 rounded w-full py-3 px-3 text-white font-bold bg-transparent placeholder-gray-500 focus:bg-white focus:text-black focus:border-purple-600  hover:border-purple-600 hover:scale-105 transition-all duration-300"
                 id="name"
                 type="text"
                 placeholder="Your name"
@@ -165,7 +194,7 @@ const Contact = () => {
                 Email
               </label>
               <input
-                className="shadow appearance-none border-2 border-neutral-900 rounded w-full py-3 px-3 text-neutral-900 font-bold bg-transparent leading-tight focus:outline-none focus:shadow-outline focus:border-2 hover:border-purple-600 transition-all duration-300"
+                className="shadow appearance-none border-2 border-neutral-900 rounded w-full py-3 px-3 text-white font-bold bg-transparent placeholder-gray-500 focus:bg-white focus:text-black focus:border-purple-600  hover:border-purple-600 hover:scale-105 transition-all duration-300"
                 id="email"
                 type="email"
                 placeholder="Your email"
@@ -182,7 +211,7 @@ const Contact = () => {
                 Message
               </label>
               <textarea
-                className="shadow appearance-none border-2 border-neutral-900 rounded w-full py-3 px-3 text-neutral-900 font-bold bg-transparent leading-tight focus:outline-none focus:shadow-outline focus:border-2 hover:border-purple-600 transition-all duration-300"
+                className="shadow appearance-none border-2 border-neutral-900 rounded w-full py-3 px-3 text-white font-bold bg-transparent placeholder-gray-500 focus:bg-white focus:text-black focus:border-purple-600 hover:border-purple-600 hover:scale-105 transition-all duration-300"
                 id="message"
                 placeholder="Your message"
                 name="message"
