@@ -55,7 +55,7 @@ function Hero() {
             >
               <a 
                 className="bg-gradient-to-r from-purple-500 via-slate-300 to-pink-600 text-2xl tracking-tighter bg-clip-text text-transparent font-bold py-4 px-6 border-2 border-purple-900 rounded-md focus:outline-none focus:shadow-outline hover:scale-105 transition-transform duration-500 hover:bg-gradient-to-r hover:from-purple-600 hover:via-slate-400 hover:to-pink-700" 
-                href="/cv.pdf" 
+                href="/CV.pdf" 
                 download="Abdul_Haseeb_CV.pdf"
               >
                 Download CV
